@@ -1,14 +1,21 @@
-<h1>Comedians</h1>
-<section id: "comedian-#{comedian.id}">
-<% @comedians.each do |comedian| %>
-<% binding.pry %>
-<%= comedian.name %>
-<%= comedian.age %>
-<%= comedian.city %>
-  <% comedian.specials.each do |special| %>
-  <%= special.name %>
-  <%= special.length %>
-  <%= special.image %>
+<section class="stats">
+
+  <h1>Statistics</h1>
+  <h5>Avg Age: <%= @avg_age %></h5>
 </section>
-  <% end %>
-<% end %>
+  <div class="card">
+    <h1>Comedians</h1>
+    <% @comedians.each do |comedian| %>
+      <%= tag.div id: "comedian-#{comedian.id}" do %>
+        <h2> <%= comedian.name %> </h2>
+        <%= comedian.age %>
+        <%= comedian.city %>
+        <h3>Specials</h3>
+        <% comedian.specials.each do |special| %>
+          <%= special.name %>
+          <%= special.length %>
+          <img class="thumbnail" src="<%= special.image %>"/>
+        <% end %>
+      <% end %>
+    <% end %>
+  </div>

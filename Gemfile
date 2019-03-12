@@ -43,6 +43,7 @@ group :development, :test do
   gem 'capybara'
   gem 'pry'
   gem 'simplecov', require: false, group: :test
+  gem 'launchy', '~> 2.4', '>= 2.4.3'
 end
 
 group :development do
