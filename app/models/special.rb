@@ -12,6 +12,6 @@ class Special < ApplicationRecord
 
   private
   def special_params
-    require.(:specials).permit(:length, :name)
+    params.permit(:length, :name)
   end
 end

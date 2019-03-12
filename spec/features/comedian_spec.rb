@@ -44,6 +44,7 @@ RSpec.feature "Comedians", type: :feature do
     end
     it 'it can use query parameters' do
       visit comedians_path(age: 34)
+      
       expect(page).to have_content(@c4.name)
       expect(page).to have_content(@c5.name)
       expect(page).to_not have_content(@c1.name)

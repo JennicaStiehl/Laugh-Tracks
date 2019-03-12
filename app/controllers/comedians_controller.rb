@@ -1,10 +1,10 @@
 class ComediansController < ApplicationController
   def index
     @comedians = Comedian.where(comedian_params)
-    @avg_age = Comedian.avg_age
-    @avg_length = Special.avg_length
-    @city_list = Comedian.city_list
-    # @query_params = Comedian.fetch_comedians(params)
+    @avg_age = @comedians.avg_age
+    @specials = Special.where(comedian_params[:id])
+    @avg_length = @specials.avg_length
+    @city_list = @comedians.city_list
   end
 
   private

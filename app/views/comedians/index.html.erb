@@ -1,10 +1,10 @@
 <section class="stats">
-
   <h1>Statistics</h1>
   <h5>Avg Age: <%= @avg_age %></h5>
-  <h5>Avg Special Length: <%= @avg_length %></h5>
+  <h5>Avg Special Length: <%= @avg_length.round(2) %></h5>
   <h5>Unique Cities: <%= @city_list.join(", ") %></h5>
 </section>
+
   <div class="card">
     <h1>Comedians</h1>
     <% @comedians.each do |comedian| %>
