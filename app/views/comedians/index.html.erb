@@ -1,8 +1,14 @@
 <h1>Comedians</h1>
-<section id="comedian-info">
+<section id: "comedian-#{comedian.id}">
 <% @comedians.each do |comedian| %>
+<% binding.pry %>
 <%= comedian.name %>
 <%= comedian.age %>
 <%= comedian.city %>
-<% end %>
+  <% comedian.specials.each do |special| %>
+  <%= special.name %>
+  <%= special.length %>
+  <%= special.image %>
 </section>
+  <% end %>
+<% end %>
