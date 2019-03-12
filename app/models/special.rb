@@ -7,4 +7,11 @@ class Special < ApplicationRecord
   def self.avg_length
     average(:length)
   end
+
+
+
+  private
+  def special_params
+    require.(:specials).permit(:length, :name)
+  end
 end

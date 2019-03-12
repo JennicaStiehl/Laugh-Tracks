@@ -12,4 +12,11 @@ class Comedian < ApplicationRecord
   def self.city_list
     distinct.pluck(:city)
   end
+
+  # def self.comedian_list(comedian_params)
+  #   Comedian.where(comedian_params)
+  # end --why does this work
+  # how can it limit for statistics?
+
+
 end
