@@ -36,8 +36,8 @@ RSpec.feature "Comedians", type: :feature do
       visit comedians_path
       within(class:"stats") do
         expect(page).to have_content("Avg Age: 40")
-        # expect(page).to have_content("Avg Special Length: 60")
-        # expect(page).to have_content("Cities: New York, Palo Alto")
+        expect(page).to have_content("Avg Special Length: 60")
+        expect(page).to have_content("Unique Cities: New York, Palo Alto")
       end
     end
   end

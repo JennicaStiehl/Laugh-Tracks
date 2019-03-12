@@ -8,4 +8,8 @@ class Comedian < ApplicationRecord
   def self.avg_age
     average(:age)
   end
+
+  def self.city_list
+    distinct.pluck(:city)
+  end
 end

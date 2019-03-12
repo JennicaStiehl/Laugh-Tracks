@@ -3,4 +3,8 @@ class Special < ApplicationRecord
   validates_numericality_of :length
   validates_presence_of :name
   validates_presence_of :length
+
+  def self.avg_length
+    average(:length)
+  end
 end

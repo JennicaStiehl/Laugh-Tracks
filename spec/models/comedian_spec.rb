@@ -21,9 +21,13 @@ RSpec.describe Comedian, type: :model do
     it { should validate_presence_of :city }
   end
   describe 'class methods' do
-    it 'can calc statiustics' do
+    it 'can calc avg age' do
       actual = Comedian.avg_age
       expect(actual).to eq(40)
+    end
+    it 'can list unique cities' do
+      actual = Comedian.city_list
+      expect(actual).to eq(["New York", "Palo Alto"])
     end
   end
 end
