@@ -42,13 +42,22 @@ RSpec.feature "Comedians", type: :feature do
         expect(page).to have_content("Unique Cities: New York, Palo Alto")
       end
     end
+
     it 'it can use query parameters' do
       visit comedians_path(age: 34)
-      
+
       expect(page).to have_content(@c4.name)
       expect(page).to have_content(@c5.name)
       expect(page).to_not have_content(@c1.name)
       expect(page).to_not have_content(@c2.name)
+    end
+
+    it 'allows me to visit a comedian show page via a link from the index page' do
+      visit comedians_path
+
+      within(id:"comedian-#{@c1.id}") do
+        click_link("#{@c1.name}")
+      end
     end
   end
 end

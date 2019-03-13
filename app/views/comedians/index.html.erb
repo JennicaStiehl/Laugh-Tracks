@@ -9,7 +9,7 @@
     <h1>Comedians</h1>
     <% @comedians.each do |comedian| %>
       <%= tag.div id: "comedian-#{comedian.id}" do %>
-        <h2> <%= comedian.name %> </h2>
+        <h2> <%= link_to comedian.name, comedian_path(comedian.id) %> </h2>
         <%= comedian.age %>
         <%= comedian.city %>
         <h3>Specials</h3>
