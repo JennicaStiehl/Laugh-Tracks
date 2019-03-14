@@ -1,23 +1,26 @@
-<section class="stats">
+<div class="alert alert-secondary" role="alert">
   <h1>Statistics</h1>
-  <h5>Avg Age: <%= @avg_age %></h5>
-  <h5>Avg Special Length: <%= @avg_length.round(2) %></h5>
+  <h5>Avg Age: <%= @avg_age.round(0) %></h5>
+  <h5>Avg Special Length: <%= @avg_length.round(1) %></h5>
   <h5>Unique Cities: <%= @city_list.join(", ") %></h5>
-</section>
-
-  <div class="card">
-    <h1>Comedians</h1>
+</div>
+<div class="card" style="width: 90rem;">
+  <div class="card-body">
+    <h5 class="card-title">Comedians</h5>
     <% @comedians.each do |comedian| %>
+    <div class="card">
       <%= tag.div id: "comedian-#{comedian.id}" do %>
-        <h2> <%= link_to comedian.name, comedian_path(comedian.id) %> </h2>
-        <%= comedian.age %>
-        <%= comedian.city %>
-        <h3>Specials</h3>
+        <h3> <%= link_to comedian.name, comedian_path(comedian.id) %> </h3>
+        <p class="card-text">Age: <%= comedian.age %> |
+        City: <%= comedian.city %></p>
+        <h5>Specials</h5>
         <% comedian.specials.each do |special| %>
-          <%= special.name %>
-          <%= special.length %>
-          <img class="thumbnail" src="<%= special.image %>"/>
+          <div><img class="thumbnail" src="<%= special.image %>"/>
+            <p>Name: <%= special.name %> |
+            Length:  <%= special.length %></p>
+            </div>
         <% end %>
       <% end %>
     <% end %>
   </div>
+</div>

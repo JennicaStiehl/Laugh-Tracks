@@ -216,6 +216,8 @@
         1,
         null,
         1,
+        null,
+        1,
         1,
         null,
         null
@@ -278,6 +280,16 @@
         1,
         null,
         null,
+        null,
+        null,
+        null
+      ],
+      "/Users/jennicastiehl/Github/Turing/2module/projects/laugh-tracks/spec/features/welcome_spec.rb": [
+        1,
+        1,
+        1,
+        1,
+        1,
         null,
         null,
         null
@@ -455,8 +467,14 @@
       "/Users/jennicastiehl/Github/Turing/2module/projects/laugh-tracks/app/controllers/application_controller.rb": [
         1,
         null
+      ],
+      "/Users/jennicastiehl/Github/Turing/2module/projects/laugh-tracks/app/controllers/welcome_controller.rb": [
+        1,
+        1,
+        null,
+        null
       ]
     },
-    "timestamp": 1552525106
+    "timestamp": 1552527263
   }
 }

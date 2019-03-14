@@ -1,10 +1,10 @@
 <h1><%= @comedian.name %></h1>
-<section>
-  <%= @comedian.age %>
-  <%= @comedian.city %>
-  <%= @comedian.specials.each do |sp| %>
+<section class="card">
+  <p class="card-text">Age: <%= @comedian.age %> |
+  City: <%= @comedian.city %> </p>
+  <% @comedian.specials.each do |sp| %>
     <%= sp.name %>
     <%= sp.length %>
-    <img src="<%= sp.image %>" alt=" <%= sp.name %> "> 
+    <img class="special-img" src="<%= sp.image %>" alt=" <%= sp.name %> ">
   <% end %>
 </section>
