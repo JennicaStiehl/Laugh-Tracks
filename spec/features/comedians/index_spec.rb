@@ -12,6 +12,7 @@ RSpec.feature "Comedians", type: :feature do
     @sp3 = Special.create(name: "Warn Your Relatives", length: 60, image: "https://imagesvc.timeincapp.com/v3/mm/image?url=https%3A%2F%2Ftimedotcom.files.wordpress.com%2F2018%2F11%2Fhari-kondabolu-warn-your-relatives-top-10-comedy-best-of-culture-2018.jpg&w=1600&c=sc&poi=face&q=70", comedian: @c2)
     @sp4 = Special.create(name: "Private School Negro", length: 60, image: "https://imagesvc.timeincapp.com/v3/mm/image?url=https%3A%2F%2Ftimedotcom.files.wordpress.com%2F2018%2F11%2Fw-kamau-bell-private-school-negro-top-10-comedy-best-of-culture-2018.jpg&w=1600&c=sc&poi=face&q=70", comedian: @c3)
     @sp5 = Special.create(name: "Totally Biased", length: 60, image: "https://media.gettyimages.com/photos/comedian-w-kamau-bell-performs-onstage-at-totally-biased-with-w-kamau-picture-id163442351?s=612x612", comedian: @c3)
+    @s1 = @c1.specials.create()
   end
   describe 'as a visitor' do
     it 'can list all of the comedians' do
@@ -57,6 +58,13 @@ RSpec.feature "Comedians", type: :feature do
 
       within(id:"comedian-#{@c1.id}") do
         click_link("#{@c1.name}")
+      end
+    end
+    it "can sort by comedian name" do
+      visit '/comedians?sort=name'
+
+      within(id:"comedian-#{@c2.id}") do
+        expect(page).to have_content(@c2.name)
       end
     end
   end

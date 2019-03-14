@@ -20,5 +20,7 @@ RSpec.feature "Comedians::Shows", type: :feature do
       expect(page).to have_content(@sp1.name)
       expect(page).to have_content(@sp1.length)
     end
+
+    
   end
 end

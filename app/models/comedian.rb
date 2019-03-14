@@ -1,5 +1,7 @@
 class Comedian < ApplicationRecord
+
   has_many :specials
+
   validates_presence_of :name
   validates_presence_of :age
   validates_presence_of :city
@@ -12,10 +14,9 @@ class Comedian < ApplicationRecord
   def self.city_list
     distinct.pluck(:city)
   end
-  #
-  # def self.comedian_list(comedian_params)
-  #   Comedian.where(comedian_params)
-  # end 
 
+  def self.sort_by(attribute)
+    order(attribute)
+  end
 
 end
