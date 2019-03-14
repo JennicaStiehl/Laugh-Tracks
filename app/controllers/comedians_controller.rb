@@ -31,7 +31,7 @@ class ComediansController < ApplicationController
 
   private
   def query_params
-    params.permit(:name, :age, :city)
+    params.permit(:name, :age, :city, :sort_by)
   end
 
   def comedian_params
