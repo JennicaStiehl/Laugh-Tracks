@@ -15,6 +15,11 @@
   </head>
 
   <body>
+    <nav class="navbar navbar-light" style="background-color: #e3f2fd;">
+      <%= link_to "All Comedians", comedians_path %>
+      <%= link_to "Laugh Tracks", welcome_path %>
+      <%= link_to "New Comedian", new_comedian_path %>
+    </nav>
     <%= yield %>
   </body>
 </html>
