@@ -12,7 +12,6 @@ RSpec.feature "Comedians", type: :feature do
     @sp3 = Special.create(name: "Warn Your Relatives", length: 60, image: "https://imagesvc.timeincapp.com/v3/mm/image?url=https%3A%2F%2Ftimedotcom.files.wordpress.com%2F2018%2F11%2Fhari-kondabolu-warn-your-relatives-top-10-comedy-best-of-culture-2018.jpg&w=1600&c=sc&poi=face&q=70", comedian: @c2)
     @sp4 = Special.create(name: "Private School Negro", length: 60, image: "https://imagesvc.timeincapp.com/v3/mm/image?url=https%3A%2F%2Ftimedotcom.files.wordpress.com%2F2018%2F11%2Fw-kamau-bell-private-school-negro-top-10-comedy-best-of-culture-2018.jpg&w=1600&c=sc&poi=face&q=70", comedian: @c3)
     @sp5 = Special.create(name: "Totally Biased", length: 60, image: "https://media.gettyimages.com/photos/comedian-w-kamau-bell-performs-onstage-at-totally-biased-with-w-kamau-picture-id163442351?s=612x612", comedian: @c3)
-    @s1 = @c1.specials.create()
   end
   describe 'as a visitor' do
     it 'can list all of the comedians' do
@@ -38,12 +37,35 @@ RSpec.feature "Comedians", type: :feature do
     it 'can show a statistics area' do
       visit comedians_path
       within(class:"alert alert-secondary") do
-        expect(page).to have_content("Avg Age: 38.0")
+        expect(page).to have_content("Avg Age: 37.6")
         expect(page).to have_content("Avg Special Length: 60")
         expect(page).to have_content("Unique Cities: New Jersey, New York, San Paolo, San Diego, Palo Alto")
+        expect(page).to have_content("Total TV Specials: 5")
       end
     end
-
+    it 'can show a statistics area-sort by name' do
+      visit comedians_path(sort: 'name')
+      within(class:"alert alert-secondary") do
+        expect(page).to have_content("Avg Age: 37.6")
+        expect(page).to have_content("Avg Special Length: 60")
+        expect(page).to have_content("Unique Cities: New Jersey, New York, San Paolo, San Diego, Palo Alto")
+        expect(page).to have_content("Total TV Specials: 5")
+      end
+    end
+    it 'can show a statistics area-filter by age' do
+      visit comedians_path(age: 20)
+      within(class:"alert alert-secondary") do
+        expect(page).to have_content("Avg Age: 20")
+        expect(page).to have_content("Avg Special Length: 60.0")
+        expect(page).to have_content("Unique Cities: New Jersey")
+        expect(page).to have_content("Total TV Specials: 2")
+      end
+    end
+    it 'it can calc avg age-sort by name' do
+      visit comedians_path(sort: 'name')
+      actual = Comedian.avg_age
+      expect(actual).to eq(0.376e2)
+    end
     it 'it can use query parameters' do
       visit comedians_path(age: 45)
 
@@ -51,6 +73,17 @@ RSpec.feature "Comedians", type: :feature do
       expect(page).to have_content(@c3.city)
       expect(page).to_not have_content(@c1.name)
       expect(page).to_not have_content(@c2.name)
+      expect(page).to have_content("Unique Cities: Palo Alto")
+    end
+
+    it 'it can use query parameters' do
+      visit comedians_path(age: 20)
+
+      expect(page).to have_content(@c1.name)
+      expect(page).to have_content(@c1.city)
+      expect(page).to_not have_content(@c2.name)
+      expect(page).to_not have_content(@c3.name)
+      expect(page).to have_content("Unique Cities: New Jersey")
     end
 
     it 'allows me to visit a comedian show page via a link from the index page' do
@@ -60,26 +93,20 @@ RSpec.feature "Comedians", type: :feature do
         click_link("#{@c1.name}")
       end
     end
+
+    it 'can count the number of specials per comedian' do
+      visit comedians_path
+
+      within(id:"comedian-#{@c1.id}") do
+        expect(page).to have_content("TV Specials: 2")
+      end
+    end
     it "can sort by comedian name ascending" do
-      visit '/comedians?sort=name'
+      visit comedians_path(sort: 'name')
 
-      expect(page).to have_content(@c2.name)
-      expect(page).to have_content(@c1.name)
-      expect(page).to have_content(@c5.name)
-    end
-    it "can sort by comedian age ascending" do
-      visit '/comedians?sort=age'
-
-      expect(page).to have_content(@c1.name)
-      expect(page).to have_content(@c4.name)
-      expect(page).to have_content(@c5.name)
-    end
-    it "can sort by comedian city ascending" do
-      visit '/comedians?sort=city'
-
-      expect(page).to have_content(@c1.name)
-      expect(page).to have_content(@c2.name)
-      expect(page).to have_content(@c3.name)
+      expect(page.all('.card')[0]).to have_content(@c2.name)
+      expect(page.all('.card')[1]).to have_content(@c1.name)
+      expect(page.all('.card')[2]).to have_content(@c5.name)
     end
   end
 end

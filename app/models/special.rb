@@ -1,7 +1,7 @@
 class Special < ApplicationRecord
 
   belongs_to :comedian
-  
+
   validates_numericality_of :length
   validates_presence_of :name
   validates_presence_of :length
@@ -11,9 +11,8 @@ class Special < ApplicationRecord
   end
 
 
-
-  private
-  def special_params
-    params.permit(:length, :name)
-  end
+  # private
+  # def special_params
+  #   params.permit(:length, :name)
+  # end
 end
