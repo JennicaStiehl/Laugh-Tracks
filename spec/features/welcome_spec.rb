@@ -4,5 +4,6 @@ RSpec.describe "as a visitor" do
       visit welcome_path
       expect(page).to have_content("All Comedians")
     end
+
   end
 end

@@ -21,8 +21,26 @@ RSpec.feature "News", type: :feature do
       fill_in('City', :with => 'New Orleans')
       click_on 'Create Comedian'
 
-      expect(current_path).to eq(comedians_path)
-      expect(page).to have_content("Jim Barton")
+      if Comedian.find_by_name("Jim Barton")
+        expect(current_path).to eq(comedians_path)
+        expect(page).to have_content("Jim Barton")
+      else
+        expect(current_path).to eq(new_comedian_path)
+      end
+    end
+    it 'can create a new comedian-sad path' do
+      visit new_comedian_path
+      fill_in('Name', :with => "Jim Barton")
+      fill_in('Age', :with => nil)
+      fill_in('City', :with => 'New Orleans')
+      click_on 'Create Comedian'
+
+      if Comedian.find_by_name("Jim Barton")
+        expect(current_path).to eq(comedians_path)
+        expect(page).to have_content("Jim Barton")
+      else
+        expect(current_path).to eq(new_comedian_path)
+      end
     end
   end
 end

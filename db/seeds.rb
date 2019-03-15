@@ -9,6 +9,9 @@
 require './app/models/comedian.rb'
 require './app/models/special.rb'
 
+Comedian.destroy_all
+Special.destroy_all
+
 @c1 = Comedian.create(name: "John Mulaney", age: 39, city: "New York")
 @c2 = Comedian.create(name: "Hari Kondabolu", age: 36, city: "New York")
 @c3 = Comedian.create(name: "W. Kamau Bell", age: 45, city: "Palo Alto")
@@ -19,6 +22,9 @@ require './app/models/special.rb'
 @c8 = Comedian.create(name: "Ali Wong", age: 32, city: "Denver")
 @c9 = Comedian.create(name: "Aparna Nancherla", age: 36, city: "Washington, D.C")
 @c10 = Comedian.create(name: "Hannah Gadsby", age: 41, city: "Tasmania")
+@c11 = Comedian.create(name: "Maria Bamford", age: 48, city: "Port Hueneme")
+@c12 = Comedian.create(name: "Marcella Arguello", age: 32, city: "Modesto")
+@c13 = Comedian.create(name: "Michelle Wolf", age: 33, city: "Hersey")
 #rake db:seed
 @sp1 = Special.create(name: "Kid Georgeous", length: 60, image: "https://imagesvc.timeincapp.com/v3/mm/image?url=https%3A%2F%2Ftimedotcom.files.wordpress.com%2F2018%2F11%2Fjohn-mulaney-kid-gorgeous-radio-city-top-10-comedy-best-of-culture-2018.jpg&w=1600&c=sc&poi=face&q=70", comedian: @c1)
 @sp2 = Special.create(name: "New in Town", length: 60, image: "http://www.slate.com/content/dam/slate/articles/arts/interrogation/2012/02/120202_INTERROGATION_johnMulaney.jpg.CROP.rectangle3-large.jpg", comedian: @c1)
@@ -33,3 +39,6 @@ require './app/models/special.rb'
 @sp11 = Special.create(name: "Hard Knock Wife", length: 60, image: "https://imagesvc.timeincapp.com/v3/mm/image?url=https%3A%2F%2Ftimedotcom.files.wordpress.com%2F2018%2F11%2Fali-wong-hard-knock-wife-top-10-comedy-best-of-culture-2018.jpg&w=1600&c=sc&poi=face&q=70", comedian: @c8)
 @sp12 = Special.create(name: "The Standups", length: 60, image: "https://imagesvc.timeincapp.com/v3/mm/image?url=https%3A%2F%2Ftimedotcom.files.wordpress.com%2F2018%2F11%2Faparna-nancherla-top-10-comedy-best-of-culture-2018.jpg&w=1600&c=sc&poi=face&q=70", comedian: @c9)
 @sp13 = Special.create(name: "Nanette", length: 60, image: "https://imagesvc.timeincapp.com/v3/mm/image?url=https%3A%2F%2Ftimedotcom.files.wordpress.com%2F2018%2F11%2Fhannah-gadsby-nanette-top-10-comedy-best-of-culture-2018.jpg&w=1600&c=sc&poi=face&q=70", comedian: @c10)
+@sp14 = @c11.specials.create(name: "The Special Special Special", length:35, image:"https://archive.is/b5LJ6/005b7de7be214a7ecf4c4434be49157e3c357aa4")
+@sp14 = @c12.specials.create(name: "Old Baby", length:35, image:"http://s1.ticketm.net/dam/a/132/4618bdf3-fddf-49ed-97b9-481646af1132_215501_TABLET_LANDSCAPE_3_2.jpg")
+@sp15 = @c13.specials.create(name: "Nice Lady", length:58, image:"https://www.hbo.com/content/dam/hbodata/specials/michelle-wolf-a-nice-lady/article/article_michelle-wolf_1920.jpg/_jcr_content/renditions/cq5dam.web.1200.675.jpeg")

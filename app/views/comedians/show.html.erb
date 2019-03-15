@@ -3,8 +3,8 @@
   <p class="card-text">Age: <%= @comedian.age %> |
   City: <%= @comedian.city %> </p>
   <% @comedian.specials.each do |sp| %>
-    <%= sp.name %>
-    <%= sp.length %>
+    <p>Name: <%= sp.name %> | 
+    Length: <%= sp.length %></p>
     <img class="special-img" src="<%= sp.image %>" alt=" <%= sp.name %> ">
   <% end %>
 </section>
