@@ -39,7 +39,7 @@ RSpec.feature "Comedians", type: :feature do
       within(class:"alert alert-secondary") do
         expect(page).to have_content("Avg Age: 37.6")
         expect(page).to have_content("Avg Special Length: 60")
-        expect(page).to have_content("Unique Cities: New Jersey, New York, San Paolo, San Diego, Palo Alto")
+        expect(page).to have_content("Unique Cities: New Jersey, New York, Palo Alto, San Diego, San Paolo")
         expect(page).to have_content("Total TV Specials: 5")
       end
     end
@@ -48,7 +48,7 @@ RSpec.feature "Comedians", type: :feature do
       within(class:"alert alert-secondary") do
         expect(page).to have_content("Avg Age: 37.6")
         expect(page).to have_content("Avg Special Length: 60")
-        expect(page).to have_content("Unique Cities: New Jersey, New York, San Paolo, San Diego, Palo Alto")
+        expect(page).to have_content("Unique Cities: New York, New Jersey, San Paolo, San Diego, Palo Alto")
         expect(page).to have_content("Total TV Specials: 5")
       end
     end
