@@ -17,9 +17,19 @@
   <body>
     <nav class="navbar navbar-light" style="background-color: #e3f2fd;">
       <%= link_to "All Comedians", comedians_path %>
-      <%= link_to "Laugh Tracks", welcome_path %>
+      <%= link_to "Laugh Tracks Home", welcome_path %>
       <%= link_to "New Comedian", new_comedian_path %>
+
+      <% if current_user %>
+        <%= link_to "Log out", logout_path %>
+      <% else %>
+        <%= link_to "Register as a User", new_user_path %>
+        <%= link_to "Login", login_path %>
+      <% end %>
     </nav>
+
+
+
     <%= yield %>
   </body>
 </html>

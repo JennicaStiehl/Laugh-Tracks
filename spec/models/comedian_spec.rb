@@ -30,15 +30,15 @@ RSpec.describe Comedian, type: :model do
       actual = Comedian.city_list
       expect(actual).to eq(["New Jersey", "New York", "Palo Alto"])
     end
-    it 'it can specials_avg_length' do
+    it 'it can calc specials_avg_length' do
       actual = Comedian.specials_avg_length
       expect(actual).to eq(80)
     end
-    it 'it can specials_count' do
+    it 'it can calc specials_count' do
       actual = Comedian.specials_count
       expect(actual).to eq(5)
     end
-    it 'it can comedian_count' do
+    it 'it can calc comedian_count' do
       actual = Comedian.comedian_count
       expect(actual).to eq(3)
     end

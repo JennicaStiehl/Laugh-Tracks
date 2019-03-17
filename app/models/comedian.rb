@@ -4,17 +4,17 @@ class Comedian < ApplicationRecord
   has_many :favorites
   has_many :users, through: :favorites
 
-  validates_presence_of :name
+  validates :name, presence: true, uniqueness: true
   validates_presence_of :age
   validates_presence_of :city
   validates_numericality_of :age
 
   def self.avg_age
-    average(:age)
+    average(:age).round(1)
   end
 
   def self.city_list
-    distinct.pluck(:city)
+    select(distinct: :city).order(:city).pluck(:city)
   end
 
   def self.sort_by(attribute)
@@ -22,7 +22,7 @@ class Comedian < ApplicationRecord
   end
 
   def self.specials_avg_length
-    joins(:specials).average(:length)
+    joins(:specials).average(:length).round(1)
   end
 
   def self.specials_count

@@ -2,25 +2,10 @@ class ComediansController < ApplicationController
   def index
     if query_params[:age]
       @comedians = Comedian.where(query_params)
-      @city_list = @comedians.city_list
-      @avg_age = @comedians.avg_age
-      @avg_length = @comedians.specials_avg_length
-      @total_specials = @comedians.specials_count
-      @total_comedians = @comedians.comedian_count
     elsif query_params[:sort]
-      @city_list = Comedian.city_list
       @comedians = Comedian.order(query_params[:sort])
-      @avg_age = @comedians.avg_age
-      @avg_length = @comedians.specials_avg_length
-      @total_specials = @comedians.specials_count
-      @total_comedians = @comedians.comedian_count
     else
       @comedians = Comedian.all
-      @city_list = @comedians.city_list
-      @avg_age = @comedians.avg_age
-      @avg_length = @comedians.specials_avg_length
-      @total_specials = @comedians.specials_count
-      @total_comedians = @comedians.comedian_count
     end
   end
 

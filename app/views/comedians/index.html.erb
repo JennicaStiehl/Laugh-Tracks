@@ -1,10 +1,10 @@
 <div class="alert alert-secondary" role="alert">
   <h4>Statistics</h4>
-  <p>Avg Age: <%= @avg_age.round(1) %> |
-    Avg Special Length: <%= @avg_length.round(1) %> |
-    Total TV Specials: <%= @total_specials %> |
-    Total Comedians: <%= @total_comedians %> </p>
-  <p>Unique Cities: <%= @city_list.join(", ") %></p>
+  <p>Avg Age: <%= @comedians.avg_age %> |
+    Avg Special Length: <%= @comedians.specials_avg_length %> |
+    Total TV Specials: <%= @comedians.specials_count %> |
+    Total Comedians: <%= @comedians.comedian_count %> </p>
+  <p>Unique Cities: <%= @comedians.city_list.join(", ") %></p>
 </div>
 
 <div class="card" style="width: 90rem;">
