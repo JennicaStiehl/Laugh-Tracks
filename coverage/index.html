@@ -14,18 +14,18 @@
       <img src="./assets/0.10.2/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" style="display:none;">
-      <div class="timestamp">Generated <abbr class="timeago" title="2019-03-17T09:32:41-06:00">2019-03-17T09:32:41-06:00</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2019-03-18T08:36:47-06:00">2019-03-18T08:36:47-06:00</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
         <div class="file_list_container" id="AllFiles">
   <h2>
     <span class="group_name">All Files</span>
-    (<span class="covered_percent"><span class="green">99.09%</span></span>
+    (<span class="covered_percent"><span class="green">97.58%</span></span>
      covered at
      <span class="covered_strength">
        <span class="green">
-         2.02
+         2.0
        </span>
     </span> hits/line)
   </h2>
@@ -33,8 +33,8 @@
   <div>
     <b>33</b> files in total.
     <b>331</b> relevant lines. 
-    <span class="green"><b>328</b> lines covered</span> and
-    <span class="red"><b>3</b> lines missed </span>
+    <span class="green"><b>323</b> lines covered</span> and
+    <span class="red"><b>8</b> lines missed </span>
   </div>
   <table class="file_list">
     <thead>
@@ -72,12 +72,12 @@
       
       <tr>
         <td class="strong"><a href="#7bf101d7c5487f0404513fb846a8534262849268" class="src_link" title="app/controllers/sessions_controller.rb">app/controllers/sessions_controller.rb</a></td>
-        <td class="green strong">100.0 %</td>
+        <td class="yellow strong">81.82 %</td>
         <td>20</td>
         <td>11</td>
-        <td>11</td>
-        <td>0</td>
-        <td>1.2</td>
+        <td>9</td>
+        <td>2</td>
+        <td>1.0</td>
       </tr>
       
       <tr>
@@ -322,12 +322,12 @@
       
       <tr>
         <td class="strong"><a href="#cdb2749784488b0a4507d1735893af4d962a0c9a" class="src_link" title="spec/features/users/login_spec.rb">spec/features/users/login_spec.rb</a></td>
-        <td class="green strong">100.0 %</td>
+        <td class="green strong">90.63 %</td>
         <td>50</td>
         <td>32</td>
-        <td>32</td>
-        <td>0</td>
-        <td>1.0</td>
+        <td>29</td>
+        <td>3</td>
+        <td>0.9</td>
       </tr>
       
       <tr>
@@ -707,11 +707,11 @@
         <div class="source_table" id="7bf101d7c5487f0404513fb846a8534262849268">
   <div class="header">
     <h3>app/controllers/sessions_controller.rb</h3>
-    <h4><span class="green">100.0 %</span> covered</h4>
+    <h4><span class="yellow">81.82 %</span> covered</h4>
     <div>
       <b>11</b> relevant lines. 
-      <span class="green"><b>11</b> lines covered</span> and
-      <span class="red"><b>0</b> lines missed.</span>
+      <span class="green"><b>9</b> lines covered</span> and
+      <span class="red"><b>2</b> lines missed.</span>
     </div>
   </div>
   
@@ -808,14 +808,14 @@
           <code class="ruby">  def destroy</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="16">
-          <span class="hits">1</span>
+        <li class="missed" data-hits="0" data-linenumber="16">
+          
           
           <code class="ruby">    session.clear</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="17">
-          <span class="hits">1</span>
+        <li class="missed" data-hits="0" data-linenumber="17">
+          
           
           <code class="ruby">    redirect_to welcome_path</code>
         </li>
@@ -3606,11 +3606,11 @@
         <div class="source_table" id="cdb2749784488b0a4507d1735893af4d962a0c9a">
   <div class="header">
     <h3>spec/features/users/login_spec.rb</h3>
-    <h4><span class="green">100.0 %</span> covered</h4>
+    <h4><span class="green">90.63 %</span> covered</h4>
     <div>
       <b>32</b> relevant lines. 
-      <span class="green"><b>32</b> lines covered</span> and
-      <span class="red"><b>0</b> lines missed.</span>
+      <span class="green"><b>29</b> lines covered</span> and
+      <span class="red"><b>3</b> lines missed.</span>
     </div>
   </div>
   
@@ -3887,20 +3887,20 @@
           <code class="ruby">    visit user_path(user.id)</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="46">
-          <span class="hits">1</span>
+        <li class="missed" data-hits="0" data-linenumber="46">
+          
           
           <code class="ruby">    click_on &quot;Log out&quot;</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="47">
-          <span class="hits">1</span>
+        <li class="missed" data-hits="0" data-linenumber="47">
+          
           
           <code class="ruby">    expect(current_path).to eq(welcome_path)</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="48">
-          <span class="hits">1</span>
+        <li class="missed" data-hits="0" data-linenumber="48">
+          
           
           <code class="ruby">    expect(page).to have_content(&quot;Welcome to Laugh Tracks&quot;)</code>
         </li>
