@@ -37,4 +37,8 @@ class Comedian < ApplicationRecord
     count
   end
 
+  def add_fav(params)
+    Favorite.create(user: params[:user], comedian: params[:comedian])
+  end
+
 end

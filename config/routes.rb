@@ -12,9 +12,18 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :users do
+    collection do
+      get :favorites
+    end
+  end
+  # put '/users/:id/enable', to: 'users#enable', as: :enable_user
+  get 'users/:id/disable', to: 'users#disable', as: :disable_user
+
   resources :users, only: [:new, :create, :show]
 
   resources :comedians, only: [:index, :new, :create, :show] do
     resources :specials, only: [:index, :new, :create]
   end
+
 end

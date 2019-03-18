@@ -11,4 +11,12 @@ RSpec.describe User, type: :model do
     it { should validate_uniqueness_of :username }
     it { should validate_presence_of :password }
   end
+
+  describe 'Instance Methods' do
+    it 'can change the value of the active flag' do
+      user = User.create(username: "janer", password:"janer")
+      actual = user.set_active_flag
+      expect(actual).to eq(false)
+    end
+  end
 end
