@@ -30,6 +30,15 @@ class UsersController < ApplicationController
     @users = User.where(archived: true).entries
     render action: :index
   end
+
+  def disable
+  end
+
+  def favorite
+    binding.pry
+    
+  end
+
 private
   def user_params
     params.require(:user).permit(:username, :password, :comedian, :user)
