@@ -12,11 +12,11 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :users do
-    collection do
-      get :favorite
-    end
-  end
+  # resources :users do
+  #   collection do
+  #     resource :favorite
+  #   end
+  # end
   # put '/users/:id/enable', to: 'users#enable', as: :enable_user
   get 'users/:id/disable', to: 'users#disable', as: :disable_user
 

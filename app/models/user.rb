@@ -8,4 +8,12 @@ class User < ApplicationRecord
   has_secure_password
 
   enum role: [:visitor, :registered_user, :admin]
+
+  def set_active_flag
+    if self.active == true
+      self.active = false
+    else
+      self.active = true
+    end
+  end
 end

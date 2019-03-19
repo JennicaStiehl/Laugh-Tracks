@@ -17,26 +17,29 @@ class UsersController < ApplicationController
   def show
     if params[:comedian]
       @user = User.find(current_user.id)
+      @comedian = Comedian.find(params[:comedian])
     else
       @user = User.find(params[:id])
     end
   end
 
   def index
-    @users = User.where(archived: false).entries
+    @users = User.where(active: false).entries
   end
 
   def archived
-    @users = User.where(archived: true).entries
+    @users = User.where(active: true).entries
     render action: :index
   end
 
   def disable
+    @user = User.find(params[:id])
+    @user.set_active_flag
+    redirect_to welcome_path
   end
 
   def favorite
-    binding.pry
-    
+
   end
 
 private

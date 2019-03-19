@@ -15,12 +15,12 @@
     <div class="card">
       <%= tag.div id: "comedian-#{comedian.id}" do %>
         <h4> <%= link_to comedian.name, comedian_path(comedian.id) %> </h4>
-        <% form_for :favorite, url: favorite_users_path do |f| %>
-            <%= f.hidden_field :user, value: current_user %>
-            <%= f.hidden_field :comedian, value: comedian %>
-            <%= f.submit "Favorite" %>
-        <% end %>
-        <%= link_to "Favorites", favorite_users_path(user: :current_user, comedian: comedian) %>
+        <%# form_for :favorite, url: favorite_users_path do |f| %>
+            <%#= f.hidden_field :user, value: current_user %>
+            <%#= f.hidden_field :comedian, value: comedian %>
+            <%#= f.submit "Favorite" %>
+        <%# end #%>
+        <%#= link_to "Favorites", favorite_users_path(user: :current_user, comedian: comedian) %>
 
         <p class="card-text">Age: <%= comedian.age %> |
         City: <%= comedian.city %> |
